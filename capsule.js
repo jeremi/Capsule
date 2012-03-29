@@ -331,11 +331,11 @@
     
     // ###setServer
     // Our server version of the normal `set` method. Takes a hash of attributes
-    setServer: function(attrs) {
+    setServer: function(attrs, callback) {
       socket.emit('set', {
         id: this.id,
         change: attrs
-      });
+      }, callback);
     },
     
     // ###unsetServer
