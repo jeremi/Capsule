@@ -667,7 +667,9 @@
           templateKey: this.template
       });
       var newEl = ich[opts.templateKey](this.addViewMixins(this.model.toTemplate()))[0];
-      if (!this.el.parentNode) {
+      if (opts.placement == 'after') {
+        $(opts.leadEl)[opts.placement](newEl);
+      } else if (!this.el.parentNode) {
         $(this.containerEl)[opts.placement](newEl);
       } else {
         $(this.el).replaceWith(newEl);
